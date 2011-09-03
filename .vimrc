@@ -72,7 +72,7 @@ cmap w!! w !sudo tee % >/dev/null
 let mapleader=","       " change the leader to be a comma vs slash
 
 "Spellcheck
-set spell
+"set spell
 
 " shortcut to toggle spelling
 " en_US, en_GB, it_IT
@@ -96,4 +96,6 @@ let g:SuperTabDefaultCompletionType = "context"
 
 "Ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-nnoremap <leader>333 :Ack
+nnoremap <leader>3 :Ack
+
+
