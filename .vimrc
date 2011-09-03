@@ -41,8 +41,10 @@ set noswapfile
 
 set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
-map <silent> <F11> <C-E>:NERDTreeToggle<CR>
-map <silent> <F10> <C-E>:TlistToggle<CR>
+"Load Pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 set pastetoggle=<F2>
 
 if version>= 600
@@ -82,7 +84,16 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 "set spellfile=~/.vim/en_US.dic
 
 
-nmap <leader>u :TlistUpdate<CR>
-nmap <leader>w :TlistSessionSave tlist<CR>
-nmap <leader>l :TlistSessionLoad tlist<CR>
+"NerdTree
+noremap <leader>1 :NERDTreeToggle<CR>
 
+"TagBar
+let g:tagbar_usearrows = 1
+nnoremap <leader>2 :TagbarToggle<CR>
+
+"Supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+"Ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+nnoremap <leader>333 :Ack
