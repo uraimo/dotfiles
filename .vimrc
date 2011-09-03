@@ -1,12 +1,13 @@
 set nocompatible
 set t_Co=256
-colorscheme mustang "slate
+colorscheme mustang "wombat slate solarized
+set background=dark
 syntax enable
 
 "Shortcut to auto indent entire file
 set autoindent
-set smartindent
 set showmatch
+filetype indent on
 
 set tabstop=4
 set shiftwidth=4
@@ -41,6 +42,7 @@ set noswapfile
 set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
 map <silent> <F11> <C-E>:NERDTreeToggle<CR>
+map <silent> <F10> <C-E>:TlistToggle<CR>
 set pastetoggle=<F2>
 
 if version>= 600
@@ -68,7 +70,7 @@ cmap w!! w !sudo tee % >/dev/null
 let mapleader=","       " change the leader to be a comma vs slash
 
 "Spellcheck
-"set spell
+set spell
 
 " shortcut to toggle spelling
 " en_US, en_GB, it_IT
@@ -80,4 +82,7 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 "set spellfile=~/.vim/en_US.dic
 
 
+nmap <leader>u :TlistUpdate<CR>
+nmap <leader>w :TlistSessionSave tlist<CR>
+nmap <leader>l :TlistSessionLoad tlist<CR>
 

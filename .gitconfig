@@ -1,0 +1,19 @@
+[user]
+	name = Umberto Raimondi
+	email = me@onlyhype.com
+[github]
+	user = uraimo
+	token = <hidden>
+
+[color]
+	branch = auto
+	diff   = auto
+	status = auto
+
+[alias]
+	st        = status
+	co        = checkout
+	br        = branch
+	lg        = log --pretty=oneline --graph
+	logfull   = log --pretty=fuller --graph --stat -p
+	unstage   = reset HEAD
