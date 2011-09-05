@@ -1,7 +1,6 @@
 set nocompatible
 set t_Co=256
-colorscheme mustang "wombat slate solarized
-set background=dark
+colorscheme mustang
 syntax enable
 
 "Shortcut to auto indent entire file
@@ -99,35 +98,3 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>3 :Ack
 
-let g:tagbar_type_scala = {
-			\ 'ctagstype' : 'scala',
-			\ 'kinds' : [
-				  \ 'p:packages',
-				  \ 'V:values',
-				  \ 'v:variables',
-				  \ 'T:types',
-				  \ 't:traits',
-				  \ 'o:objects',
-				  \ 'a:aclasses',
-				  \ 'c:classes',
-				  \ 'r:cclasses',
-				  \ 'm:methods',
-			\ ],
-			\ 'sro' : '.',
-			\ 'kind2scope' : {
-				  \ 'T' : 'type',
-				  \ 't' : 'trait',
-				  \ 'o' : 'object',
-				  \ 'a' : 'abstract class',
-				  \ 'c' : 'class',
-				  \ 'r' : 'case class'
-			  \ },
-			\ 'scope2kind' : {
-				  \ 'type'           : 'T',
-				  \ 'trait'          : 't',
-				  \ 'object'         : 'o',
-				  \ 'abstract class' : 'a',
-				  \ 'class'          : 'c',
-				  \ 'case class'     : 'r'
-			  \ }
-\}

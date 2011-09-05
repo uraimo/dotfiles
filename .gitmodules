@@ -22,3 +22,12 @@
 [submodule ".vim/bundle/matchit"]
 	path = .vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
+[submodule ".vim/bundle/CSApprox"]
+	path = .vim/bundle/CSApprox
+	url = git://github.com/vim-scripts/CSApprox.git
+[submodule ".vim/bundle/CSPack"]
+	path = .vim/bundle/CSPack
+	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule ".vim/bundle/ScrollColors"]
+	path = .vim/bundle/ScrollColors
+	url = git://github.com/vim-scripts/ScrollColors.git
