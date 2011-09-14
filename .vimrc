@@ -7,7 +7,9 @@ syntax enable
 set autoindent
 set showmatch
 filetype indent on
+filetype plugin on
 filetype on
+
 
 set tabstop=4
 set shiftwidth=4
@@ -55,10 +57,10 @@ endif
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
 
 " Easy window navigation
 map <C-h> <C-w>h
