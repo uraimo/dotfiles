@@ -3,8 +3,11 @@ set t_Co=256
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 colorscheme mustang "wombat slate solarized
-set background=dark
+"set background=dark
 syntax enable
+
+"Load Pathogen
+call pathogen#infect()
 
 "Shortcut to auto indent entire file
 set autoindent
@@ -13,6 +16,7 @@ filetype indent on
 filetype plugin on
 filetype on
 
+let g:Powerline_symbols = 'fancy'
 
 set tabstop=4
 set shiftwidth=4
@@ -45,11 +49,6 @@ set nowb
 set noswapfile
 
 set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
-
-"Load Pathogen
-call pathogen#infect()
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 
 set pastetoggle=<F2>
 
@@ -89,7 +88,6 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 " zg = add word to dict
 " zw = mark word as not spelled correctly (remove)
 "set spellfile=~/.vim/en_US.dic
-
 
 "NerdTree
 noremap <leader>1 :NERDTreeToggle<CR>
