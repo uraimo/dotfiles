@@ -17,6 +17,8 @@ filetype plugin on
 filetype on
 
 let g:Powerline_symbols = 'fancy'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 2
 
 set tabstop=4
 set shiftwidth=4
