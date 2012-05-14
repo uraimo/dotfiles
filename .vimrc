@@ -1,5 +1,7 @@
 set nocompatible
 set t_Co=256
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
 colorscheme mustang "wombat slate solarized
 set background=dark
 syntax enable
@@ -43,8 +45,9 @@ set noswapfile
 set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
 "Load Pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 set pastetoggle=<F2>
 
@@ -56,10 +59,7 @@ endif
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+set tags=tags;/
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -89,8 +89,9 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 noremap <leader>1 :NERDTreeToggle<CR>
 
 "TagBar
-let g:tagbar_usearrows = 1
-nnoremap <leader>2 :TagbarToggle<CR>
+"let g:tagbar_usearrows = 1
+"nnoremap <leader>2 :TagbarToggle<CR>
+nnoremap <leader>2 :TlistToggle<CR>
 
 "Supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -99,35 +100,3 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>3 :Ack
 
-let g:tagbar_type_scala = {
-			\ 'ctagstype' : 'scala',
-			\ 'kinds' : [
-				  \ 'p:packages',
-				  \ 'V:values',
-				  \ 'v:variables',
-				  \ 'T:types',
-				  \ 't:traits',
-				  \ 'o:objects',
-				  \ 'a:aclasses',
-				  \ 'c:classes',
-				  \ 'r:cclasses',
-				  \ 'm:methods',
-			\ ],
-			\ 'sro' : '.',
-			\ 'kind2scope' : {
-				  \ 'T' : 'type',
-				  \ 't' : 'trait',
-				  \ 'o' : 'object',
-				  \ 'a' : 'abstract class',
-				  \ 'c' : 'class',
-				  \ 'r' : 'case class'
-			  \ },
-			\ 'scope2kind' : {
-				  \ 'type'           : 'T',
-				  \ 'trait'          : 't',
-				  \ 'object'         : 'o',
-				  \ 'abstract class' : 'a',
-				  \ 'class'          : 'c',
-				  \ 'case class'     : 'r'
-			  \ }
-\}

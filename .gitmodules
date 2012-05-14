@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/matchit"]
 	path = .vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
+[submodule ".vim/bundle/taglist"]
+	path = .vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
