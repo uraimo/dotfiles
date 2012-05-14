@@ -6,17 +6,15 @@ syntax enable
 "Shortcut to auto indent entire file
 set autoindent
 set showmatch
-filetype indent on
-filetype plugin on
-filetype on
-
-
+filetype off
+filetype indent plugin on
+ 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
 "Set the font and size
-set guifont=Envy\ Code\ R
+set guifont=Envy\ Code\ R:h14
 "Hide toolbar
 if has("gui")
 	set guioptions-=T
@@ -43,6 +41,10 @@ set noswapfile
 
 set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
+" Sparkup config
+"let g:sparkup='/usr/local/bin/sparkup'
+"let g:sparkupExecuteMapping='<D-e>'
+ 
 "Load Pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
