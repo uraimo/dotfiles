@@ -3,7 +3,7 @@ set nocompatible
 set t_Co=256
 set laststatus=2		" Always show the statusline
 set encoding=utf-8		" Necessary to show unicode glyphs
-colorscheme mustang		"wombat slate solarized
+colorscheme mustang "wombat slate solarized
 "set background=dark	"lnx workaround
 syntax enable
 
@@ -22,11 +22,14 @@ set shiftwidth=4
 set softtabstop=4
 
 "Set the font and size
-set guifont=Envy\ Code\ R\ Powerline
 if has("unix")
 	let s:uname = system("uname")
-	if s:uname == "Darwin"
-		set guifont=Envy\ Code\ R\ Powerline:h14
+	if s:uname == "Darwin\n"
+        set guifont=Monaco:h12
+		"set noantialias
+		"set guifont=Envy\ Code\ R\ for\ Powerline:h12 "Doesn't look good on Lion
+	else
+		set guifont=Envy\ Code\ R\ for\ Powerline
 	endif
 endif
 
