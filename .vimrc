@@ -22,7 +22,14 @@ set shiftwidth=4
 set softtabstop=4
 
 "Set the font and size
-set guifont=Envy\ Code\ R:h14
+set guifont=Envy\ Code\ R\ Powerline
+if has("unix")
+	let s:uname = system("uname")
+	if s:uname == "Darwin"
+		set guifont=Envy\ Code\ R\ Powerline:h14
+	endif
+endif
+
 "Hide toolbar
 if has("gui")
 	set guioptions-=T
