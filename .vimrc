@@ -48,9 +48,9 @@ if has("gui")
 	set go-=r
 	set go-=R
 	" Different cursors for different modes.
-	set guicursor=n-c:block-Cursor-blinkon0
-	set guicursor+=v:block-vCursor-blinkon0
-	set guicursor+=i-ci:ver20-iCursor
+	"set guicursor=n-c:block-Cursor-blinkon0
+	"set guicursor+=v:block-vCursor-blinkon0
+	"set guicursor+=i-ci:ver20-iCursor
 	set lines=40
 	set columns=135
 endif
@@ -156,7 +156,7 @@ let g:Powerline_cache_enabled = 1
 
 "vim-ctrl-p
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_dont_split = 'NERD_tree_2'
+let g:ctrlp_dont_split = 'NERD_tree_1'
 let g:ctrlp_jump_to_buffer = 0
 let g:ctrlp_working_path_mode = 0
 "let g:ctrlp_working_path_mode = 2
