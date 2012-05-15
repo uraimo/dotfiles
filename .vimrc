@@ -1,3 +1,10 @@
+"
+" .vimrc
+"
+" Various sources, some stuff taken from
+" https://github.com/sjl/dotfiles/blob/master/vim/vimrc
+"
+
 
 set nocompatible
 set t_Co=256
@@ -36,9 +43,23 @@ endif
 "Hide toolbar
 if has("gui")
 	set guioptions-=T
+	set go-=l
+	set go-=L
+	set go-=r
+	set go-=R
+	" Different cursors for different modes.
+	set guicursor=n-c:block-Cursor-blinkon0
+	set guicursor+=v:block-vCursor-blinkon0
+	set guicursor+=i-ci:ver20-iCursor
 	set lines=40
 	set columns=135
 endif
+
+if has("gui_macvim")
+	" Full screen means FULL screen
+	set fuoptions=maxvert,maxhorz
+endif
+
 set ruler
 
 set incsearch
@@ -87,6 +108,13 @@ cmap w!! w !sudo tee % >/dev/null
 
 let mapleader=","       " change the leader to be a comma vs slash
 
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+
 "Spellcheck
 " shortcut to toggle spelling
 " en_US, en_GB, it_IT
@@ -95,6 +123,21 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 " zg = add word to dict
 " zw = mark word as not spelled correctly (remove)
 "set spellfile=~/.vim/en_US.dic
+
+"Indent highlight
+let g:indentguides_state = 0
+function! IndentGuides() " {{{
+	if g:indentguides_state
+		let g:indentguides_state = 0
+		2match None
+	else
+		let g:indentguides_state = 1
+		execute '2match IndentGuides /\%(\_^\s*\)\@<=\%(\%'.(0*&sw+1).'v\|\%'.(1*&sw+1).'v\|\%'.(2*&sw+1).'v\|\%'.(3*&sw+1).'v\|\%'.(4*&sw+1).'v\|\%'.(5*&sw+1).'v\|\%'.(6*&sw+1).'v\|\%'.(7*&sw+1).'v\)\s/'
+	endif
+endfunction " 
+hi def IndentGuides guibg=#303030
+nnoremap <leader>I :call IndentGuides()<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,10 +152,18 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 "vim-powerline
 let g:Powerline_symbols = 'fancy'
+let g:Powerline_cache_enabled = 1
 
 "vim-ctrl-p
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_dont_split = 'NERD_tree_2'
+let g:ctrlp_jump_to_buffer = 0
+let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_working_path_mode = 2
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_split_window = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_extensions = ['tag']
 
 "NerdTree
 noremap <leader>1 :NERDTreeToggle<CR>
