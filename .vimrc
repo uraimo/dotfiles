@@ -82,6 +82,7 @@ set noswapfile
 "set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
 set pastetoggle=<F2>
+nnoremap <F3> :NumbersToggle<CR>
 
 if version>= 600
 	set foldenable
