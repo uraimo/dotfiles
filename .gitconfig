@@ -33,3 +33,6 @@
 [mergetool]
     prompt = false
 	keepBackup = false
+[core]
+	pager = less -r
+
