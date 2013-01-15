@@ -127,7 +127,7 @@ nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 "Indent highlight
 let g:indentguides_state = 0
-function! IndentGuides() " {{{
+ function! IndentGuides() " {{{
 	if g:indentguides_state
 		let g:indentguides_state = 0
 		2match None
@@ -155,7 +155,6 @@ nnoremap <leader>I :call IndentGuides()<cr>
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
 
-"vim-ctrl-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_dont_split = 'NERD_tree_1'
 let g:ctrlp_jump_to_buffer = 0
@@ -180,7 +179,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "Ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>3 :Ack
-
 
 
 """""""""""""""""""" HEX MODE
@@ -227,4 +225,12 @@ function ToggleHex()
   let &readonly=l:oldreadonly
   let &modifiable=l:oldmodifiable
 endfunction
+
+" Conqueterm shell (requires python enabled VIM)
+" F9 to send visual selection to terminal
+" Not completely compatible with ctrlp, see:
+" https://github.com/kien/ctrlp.vim/issues/195
+
+nnoremap <leader>5 :ConqueTermSplit bash<CR>
+
 
