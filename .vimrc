@@ -11,8 +11,10 @@ set t_Co=256
 set laststatus=2		" Always show the statusline
 set encoding=utf-8		" Necessary to show unicode glyphs
 colorscheme mustang "wombat slate solarized
-"set background=dark	"lnx workaround
 syntax enable
+
+"Allign unnamed register with system clipboard
+set clipboard=unnamed
 
 "Load Pathogen
 call pathogen#infect()
@@ -108,6 +110,9 @@ map <C-l> <C-w>l
 cmap w!! w !sudo tee % >/dev/null  
 
 let mapleader=","       " change the leader to be a comma vs slash
+
+" Very magic mode search
+nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
 
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
