@@ -16,12 +16,6 @@
 [submodule ".vim/bundle/taglist"]
 	path = .vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
-[submodule ".vim/bundle/CSPack"]
-	path = .vim/bundle/CSPack
-	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
-[submodule ".vim/bundle/ScrollColors"]
-	path = .vim/bundle/ScrollColors
-	url = git://github.com/vim-scripts/ScrollColors.git
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
