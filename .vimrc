@@ -8,7 +8,6 @@
 
 set nocompatible
 set t_Co=256
-set laststatus=2		" Always show the statusline
 set encoding=utf-8		" Necessary to show unicode glyphs
 colorscheme mustang "wombat slate solarized
 syntax enable
@@ -34,9 +33,9 @@ set softtabstop=4
 if has("unix")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-        set guifont=Monaco:h12
+        "set guifont=Monaco:h12
 		"set noantialias
-		"set guifont=Envy\ Code\ R\ for\ Powerline:h12 "Doesn't look good on Lion
+		set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
 	else
 		set guifont=Envy\ Code\ R\ for\ Powerline
 	endif
@@ -161,9 +160,11 @@ nnoremap <leader>I :call IndentGuides()<cr>
 "let g:sparkup='/usr/local/bin/sparkup'
 "let g:sparkupExecuteMapping='<D-e>'
 
-"vim-powerline
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 1
+"vim-airline
+set laststatus=2		" Always show the statusline
+let g:airline_powerline_fonts=1
+let g:airline_theme='simple'
+set ttimeoutlen=50
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_dont_split = 'NERD_tree_1'
