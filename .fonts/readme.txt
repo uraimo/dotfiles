@@ -1,6 +1,6 @@
+Update 7/10/13
 
-Modified version of Envy Code R with powerline special characters support
-http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released
+Remove the old fonts and use these instead.
+The new font have been generated from the originals following this guide: https://github.com/Lokaltog/powerline/blob/develop/docs/source/fontpatching.rst
 
-
-Put into your ~/.fonts dir and run fc-cache -vf
+As usual update the font cache with:  fc-cache -fv, or simply replace the old fonts in osx
