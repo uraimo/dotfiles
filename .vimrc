@@ -80,6 +80,9 @@ set nobackup
 set nowb
 set noswapfile
 
+"Fixes delete in insert mode on some *nix
+set backspace=indent,eol,start
+
 "No more needed with powerline
 "set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
@@ -111,7 +114,9 @@ cmap w!! w !sudo tee % >/dev/null
 
 let mapleader=","       " change the leader to be a comma vs slash
 
-" Very magic mode search
+" Very magic mode search/replace with confirmation
+" Hit ,/ type the search term(in very magic mode), then 
+" / followed by the replacement string
 nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
 
 " Keep search matches in the middle of the window.
