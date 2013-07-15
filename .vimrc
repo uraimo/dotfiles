@@ -237,11 +237,4 @@ function ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 
-" Conqueterm shell (requires python enabled VIM)
-" F9 to send visual selection to terminal
-" Not completely compatible with ctrlp, see:
-" https://github.com/kien/ctrlp.vim/issues/195
-
-nnoremap <leader>5 :ConqueTermSplit bash<CR>
-
 
