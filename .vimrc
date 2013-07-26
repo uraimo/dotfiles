@@ -163,7 +163,7 @@ nnoremap <leader>I :call IndentGuides()<cr>
 "vim-airline
 set laststatus=2		" Always show the statusline
 let g:airline_powerline_fonts=1
-let g:airline_theme='simple'
+let g:airline_theme='wombat'
 set ttimeoutlen=50
 
 let g:ctrlp_map = '<c-p>'
