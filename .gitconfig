@@ -1,6 +1,6 @@
 [user]
 	name = Umberto Raimondi
-	email = me@onlyhype.com
+	email = me@uraimo.com
 [github]
 	user = uraimo
 	token = <hidden>
@@ -11,7 +11,7 @@
 	status = auto
 
 [alias]
-	st        = status
+	st        = status -sb
 	co        = checkout
 	ad        = add -A .
 	br        = branch
