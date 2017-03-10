@@ -19,15 +19,23 @@ set clipboard=unnamed
 call pathogen#infect()
 
 "Shortcut to auto indent entire file
-set autoindent
+"set autoindent
 set showmatch
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 filetype on
 
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+"set softtabstop=4
+set expandtab
+
+"Relative line numbers when not in normal mode
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+"Don't loose selection when shifting left or right"
+xnoremap <  <gv
+xnoremap >  >gv
 
 "Set the font and size
 if has("unix")
@@ -150,15 +158,11 @@ nnoremap <leader>I :call IndentGuides()<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 "						PLUGINS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-" Sparkup
-"let g:sparkup='/usr/local/bin/sparkup'
-"let g:sparkupExecuteMapping='<D-e>'
 
 "vim-airline
 set laststatus=2		" Always show the statusline
@@ -184,13 +188,27 @@ let g:ctrlp_extensions = ['tag']
 set tags=tags;/
 nnoremap <leader>2 :TlistToggle<CR>
 
-"Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
 "Ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>3 :Ack
 
+"Syntastic
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_c_compiler = "clang"
+let g:syntastic_c_compiler_options = "-Weverything" " -Wall -Werror
+
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
+ 
 
 """""""""""""""""""" HEX MODE
 
@@ -269,4 +287,10 @@ let g:netrw_altv = 1
 
 " Change directory to the current buffer when opening files.
 set autochdir
+
+
+
+
+
+
 
