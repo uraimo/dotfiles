@@ -30,8 +30,8 @@ set shiftwidth=4
 set expandtab
 
 "Relative line numbers when not in normal mode
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+autocmd InsertEnter * :set nonumber relativenumber
+autocmd InsertLeave * :set number norelativenumber
 
 "Don't loose selection when shifting left or right"
 xnoremap <  <gv
