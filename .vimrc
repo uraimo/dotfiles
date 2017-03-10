@@ -172,7 +172,7 @@ let g:airline_theme='wombat'
 set ttimeoutlen=50
 
 let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_dont_split = 'NERD_tree_1'
+let g:ctrlp_dont_split = 'NERD_tree_1'
 let g:ctrlp_jump_to_buffer = 0
 let g:ctrlp_working_path_mode = 0
 "let g:ctrlp_working_path_mode = 2
@@ -181,8 +181,8 @@ let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_extensions = ['tag']
 
-"NerdTree, use netrw 
-"noremap <leader>1 :NERDTreeToggle<CR>
+"NerdTree
+noremap <leader>1 :NERDTreeToggle<CR>
 
 "TagList
 "ctags default tagfile
@@ -255,36 +255,6 @@ function ToggleHex()
   let &readonly=l:oldreadonly
   let &modifiable=l:oldmodifiable
 endfunction
-
-
-" Toggle Vexplore with ,1
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-map <silent> <leader>1 :call ToggleVExplorer()<CR>
-
-" Hit enter in the file browser to open the selected
-" file with :vsplit to the right of the browser.
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
-
-" Default to tree mode
-"let g:netrw_liststyle=3
 
 " Change directory to the current buffer when opening files.
 set autochdir
