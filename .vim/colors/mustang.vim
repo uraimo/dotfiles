@@ -12,6 +12,11 @@ endif
 
 let colors_name = "mustang"
 
+"Nerdtree fix
+hi NERDTreeDir guifg=DarkGrey ctermfg=DarkGrey
+hi NERDTreeOpenable guifg=DarkGrey ctermfg=DarkGrey
+hi NERDTreeClosable guifg=DarkGrey ctermfg=DarkGrey
+
 " Vim >= 7.0 specific colors
 if version >= 700
   hi CursorLine guibg=#2d2d2d ctermbg=236
