@@ -45,7 +45,8 @@ if has("unix")
         "set guifont=Monaco:h12
 		"set noantialias
 		"set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
-		set guifont=M+\ 1mn\ for\ Powerline:h12
+		"set guifont=M+\ 1mn\ for\ Powerline:h12
+		set guifont=mplus\ Nerd\ Font:h12
 	else
 		set guifont=Envy\ Code\ R\ for\ Powerline
 	endif
