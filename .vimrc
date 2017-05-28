@@ -42,10 +42,8 @@ xnoremap >  >gv
 if has("unix")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-        "set guifont=Monaco:h12
 		"set noantialias
 		"set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
-		"set guifont=M+\ 1mn\ for\ Powerline:h12
 		set guifont=mplus\ Nerd\ Font:h12
 	else
 		set guifont=Envy\ Code\ R\ for\ Powerline
@@ -93,8 +91,6 @@ set noswapfile
 "Fixes delete in insert mode on some *nix
 set backspace=indent,eol,start
 
-"No more needed with powerline
-"set statusline=\ %F%m%r%h\ %w\ \ \ Line:\ %l/%L:%c
 
 set pastetoggle=<F2>
 nnoremap <F3> :NumbersToggle<CR>
@@ -108,10 +104,10 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 
 "Arrows to nop
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -139,7 +135,7 @@ nnoremap g, g,zz
 "Spellcheck
 " shortcut to toggle spelling
 " en_US, en_GB, it_IT
-nmap <leader>s :setlocal spell! spelllang=en_us<CR>
+nmap <F6> :setlocal spell! spelllang=en_us<CR>
 " setup a custom dict for spelling
 " zg = add word to dict
 " zw = mark word as not spelled correctly (remove)
@@ -260,10 +256,6 @@ endfunction
 
 " Change directory to the current buffer when opening files.
 set autochdir
-
-
-
-
 
 
 
