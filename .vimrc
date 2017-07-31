@@ -8,8 +8,13 @@
 
 set nocompatible
 set t_Co=256
+
+set background=dark
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid "mustang wombat slate solarized
+
 set encoding=utf-8		" Necessary to show unicode glyphs
-colorscheme mustang "wombat slate solarized
 syntax enable
 
 "Allign unnamed register with system clipboard
@@ -44,9 +49,10 @@ if has("unix")
 	if s:uname == "Darwin\n"
 		"set noantialias
 		"set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
-		set guifont=mplus\ Nerd\ Font:h12
+		set guifont=mplus\ Nerd\ Font:h13
 	else
-		set guifont=Envy\ Code\ R\ for\ Powerline
+		set guifont=mplus\ Nerd\ Font:h13
+		"set guifont=Envy\ Code\ R\ for\ Powerline
 	endif
 endif
 
@@ -110,13 +116,16 @@ map <left> <nop>
 map <right> <nop>
 
 " Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j            
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
 
 " w!! to write if readonly
 cmap w!! w !sudo tee % >/dev/null  
+
+" Change directory to the current buffer when opening files.
+set autochdir
 
 let mapleader=","       " change the leader to be a comma vs slash
 
@@ -143,7 +152,7 @@ nmap <F6> :setlocal spell! spelllang=en_us<CR>
 
 "Indent highlight
 let g:indentguides_state = 0
- function! IndentGuides() " {{{
+  function! IndentGuides() " {{{
 	if g:indentguides_state
 		let g:indentguides_state = 0
 		2match None
@@ -156,11 +165,8 @@ hi def IndentGuides guibg=#303030
 nnoremap <leader>I :call IndentGuides()<cr>
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"	PLUGINS
 "
-"						PLUGINS
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 "vim-airline
@@ -169,6 +175,7 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='wombat'
 set ttimeoutlen=50
 
+"ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_dont_split = 'NERD_tree_1'
 let g:ctrlp_jump_to_buffer = 0
@@ -192,7 +199,6 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>3 :Ack
 
 "Syntastic
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -205,7 +211,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_c_compiler = "clang"
 let g:syntastic_c_compiler_options = "-Weverything" " -Wall -Werror
 
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:syntastic_swift_checkers = ['swiftlint']
 
  
 
@@ -254,8 +260,6 @@ function ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 
-" Change directory to the current buffer when opening files.
-set autochdir
 
 
 
