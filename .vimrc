@@ -5,7 +5,6 @@
 " https://github.com/sjl/dotfiles/blob/master/vim/vimrc
 "
 
-
 set nocompatible
 set t_Co=256
 
@@ -39,7 +38,13 @@ set nonumber relativenumber
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set nonumber relativenumber
 
-"Don't loose selection when shifting left or right"
+"Line numbers styling
+highlight LineNr guibg=#0A3338 guifg=#777788
+if has("gui")
+    set numw=6
+endif
+
+"Don't loose selection when shifting left or right
 xnoremap <  <gv
 xnoremap >  >gv
 
@@ -50,6 +55,7 @@ if has("unix")
 		"set noantialias
 		"set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
 		set guifont=mplus\ Nerd\ Font:h13
+        set linespace=4
 	else
 		set guifont=mplus\ Nerd\ Font:h13
 		"set guifont=Envy\ Code\ R\ for\ Powerline
@@ -101,10 +107,10 @@ set backspace=indent,eol,start
 set pastetoggle=<F2>
 nnoremap <F3> :NumbersToggle<CR>
 
-if version>= 600
-	set foldenable
-	set foldmethod=marker
-endif
+"if version>= 600
+"	set foldenable
+"	set foldmethod=marker
+"endif
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
@@ -117,12 +123,12 @@ map <right> <nop>
 
 " Easy window navigation
 "map <C-h> <C-w>h
-"map <C-j> <C-w>j            
+"map <C-j> <C-w>j
 "map <C-k> <C-w>k
 "map <C-l> <C-w>l
 
 " w!! to write if readonly
-cmap w!! w !sudo tee % >/dev/null  
+cmap w!! w !sudo tee % >/dev/null
 
 " Change directory to the current buffer when opening files.
 set autochdir
@@ -130,7 +136,7 @@ set autochdir
 let mapleader=","       " change the leader to be a comma vs slash
 
 " Very magic mode search/replace with confirmation
-" Hit ,/ type the search term(in very magic mode), then 
+" Hit ,/ type the search term(in very magic mode), then
 " / followed by the replacement string
 nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
 
@@ -160,7 +166,8 @@ let g:indentguides_state = 0
 		let g:indentguides_state = 1
 		execute '2match IndentGuides /\%(\_^\s*\)\@<=\%(\%'.(0*&sw+1).'v\|\%'.(1*&sw+1).'v\|\%'.(2*&sw+1).'v\|\%'.(3*&sw+1).'v\|\%'.(4*&sw+1).'v\|\%'.(5*&sw+1).'v\|\%'.(6*&sw+1).'v\|\%'.(7*&sw+1).'v\)\s/'
 	endif
-endfunction " 
+endfunction
+
 hi def IndentGuides guibg=#303030
 nnoremap <leader>I :call IndentGuides()<cr>
 
@@ -213,7 +220,7 @@ let g:syntastic_c_compiler_options = "-Weverything" " -Wall -Werror
 
 let g:syntastic_swift_checkers = ['swiftlint']
 
- 
+
 
 """""""""""""""""""" HEX MODE
 
@@ -259,7 +266,5 @@ function ToggleHex()
   let &readonly=l:oldreadonly
   let &modifiable=l:oldmodifiable
 endfunction
-
-
 
 

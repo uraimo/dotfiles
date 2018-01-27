@@ -15,6 +15,7 @@
 	co        = checkout
 	ad        = add -A .
 	br        = branch
+    rmtmp = !git branch --merged | egrep -v \"(^\\*|master|develop)\" | xargs git branch -d
 	lg        = log --pretty=oneline --graph
 	lgf   = log --pretty=fuller --graph --stat -p
 
