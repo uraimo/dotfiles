@@ -2,4 +2,4 @@
 
 # Run from root directory
 
-git submodule update --init --recursive
+git submodule update --recursive --remote
