@@ -41,7 +41,7 @@ autocmd InsertLeave * :set nonumber relativenumber
 "Line numbers styling
 highlight LineNr guibg=#0A3338 guifg=#777788
 if has("gui")
-    set numw=6
+    set numberwidth=6
 endif
 
 "Don't loose selection when shifting left or right
@@ -209,6 +209,7 @@ nnoremap <leader>3 :Ack
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+nnoremap <leader>e :lclose<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
