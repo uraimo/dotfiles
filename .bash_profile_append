@@ -1,0 +1,73 @@
+export LANG=en_US
+export EDITOR=vim
+
+
+###############################################################################
+######## Paths
+export PATH="~/bin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
+export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
+###############################################################################
+######## Aliases
+
+# Cleanup tmp aliases
+alias cleanup_apps='brew cleanup;rm -rf /Users/$USER/Library/Caches/Homebrew/*'
+alias cleanup_xcode='rm -rf ~/Library/Developer/Xcode/DerivedData;rm -rf ~/Library/Developer/Xcode/iOS\ DeviceSupport/*;rm -rf ~/Library/Developer/Xcode/iOS\ Device\ Logs/*;xcrun simctl delete unavailable'
+alias cleanup_docker='docker rm $(docker ps -a -q) ; docker rmi $(docker images -q)'
+                                              
+# Snapshot aliases
+alias disablesnap='sudo tmutil disable localsnapshot'
+alias listsnap='tmutil listlocalsnapshots /'
+deletesnap(){ 
+    tmutil deletelocalsnapshots "$1"
+}
+
+# Binutils aliases
+alias ll='ls -al'
+alias ls='exa'
+alias find='fd'
+alias grep='rg'
+
+# Other aliases
+dockerssh(){
+    docker exec -it "$1" bash
+}
+
+
+###############################################################################
+######## Homebrew
+
+# Enable git bash completition
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
+
+
+###############################################################################
+######## Envs
+
+#eval "$(rbenv init -)"
+#eval "$(swiftenv init -)"
+eval "$(pyenv init -)"
+
+# pipenv
+export PIPENV_VENV_IN_PROJECT=1 #create env directly in project location
+alias update_pip3='pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U'
+alias listoutdated_pip3='pip3 list --outdated'
+
+
+###############################################################################
+######## Prompt
+
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
+
+
+###############################################################################
+######## Initialize addons
+
+# Load z
+. /usr/local/etc/profile.d/z.sh 
+
+
