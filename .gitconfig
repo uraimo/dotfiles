@@ -1,9 +1,10 @@
 [user]
-	name = Umberto Raimondi
-	email = me@uraimo.com
+	name = <name>
+	email = <email>
+	signingkey = <your_signingkey_here>
 [github]
-	user = uraimo
-	token = <hidden>
+	user = <github_username>
+	token = <your_token_here>
 
 [color]
 	branch = auto
@@ -11,24 +12,24 @@
 	status = auto
 
 [alias]
-	st        = status -sb
+	gg        = grep --break --heading -n
+	st        = status
 	co        = checkout
-	ad        = add -A .
 	br        = branch
-    rmtmp = !git branch --merged | egrep -v \"(^\\*|master|develop)\" | xargs git branch -d
+    rmtmp     = !git branch --merged | egrep -v \"(^\\*|master|develop)\" | xargs git branch -d
 	lg        = log --pretty=oneline --graph
-	lgf   = log --pretty=fuller --graph --stat -p
-
-    lgs     = log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset'
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lgf		  = log --pretty=fuller --graph --stat -p
 	unstage   = reset HEAD
 	l50 = "!git log --abbrev-commit --date=short --pretty=format:'%x00%h%x00%cd%x00%s%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-50s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, $3, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$4), $5, $6 }' | less -R"
     l80 = "!git log --abbrev-commit --date=short --pretty=format:'%x00%h%x00%cd%x00%s%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-80s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, $3, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$4), $5, $6 }' | less -R"
     lg50 = "!git log --graph --abbrev-commit --date=relative --pretty=format:'%x00%h%x00%s%x00%cd%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m %-50s \\033[32m%14s\\033[0m \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5, $6 }' | less -R"
     lg80 = "!git log --graph --abbrev-commit --date=relative --pretty=format:'%x00%h%x00%s%x00%cd%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m %-80s \\033[32m%14s\\033[0m \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5, $6 }' | less -R"
+	ad = add -A .
+	ic = add -A -p
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
 [diff]
-	tool = vimdiff
+	tool = icdiff
 [difftool]
     prompt = false
 [merge]
@@ -36,6 +37,12 @@
 [mergetool]
     prompt = false
 	keepBackup = false
+[push]
+	default = simple
 [core]
 	pager = less -r
+	excludesfile = ~/.gitignore_global
+[commit]
+    gpgsign = true
+
 

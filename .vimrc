@@ -16,7 +16,7 @@ colorscheme hybrid "mustang wombat slate solarized
 set encoding=utf-8		" Necessary to show unicode glyphs
 syntax enable
 
-"Allign unnamed register with system clipboard
+"Align unnamed register with system clipboard
 set clipboard=unnamed
 
 "Load Pathogen
@@ -44,6 +44,8 @@ if has("gui")
     set numberwidth=6
 endif
 
+set cursorline
+
 "Don't loose selection when shifting left or right
 xnoremap <  <gv
 xnoremap >  >gv
@@ -53,12 +55,14 @@ if has("unix")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
 		"set noantialias
-		"set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
-		set guifont=mplus\ Nerd\ Font:h13
+"       set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
+"		set guifont=mplus\ Nerd\ Font:h13
+		set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h14
         set linespace=4
 	else
-		set guifont=mplus\ Nerd\ Font:h13
-		"set guifont=Envy\ Code\ R\ for\ Powerline
+"       set guifont=Envy\ Code\ R\ for\ Powerline
+"		set guifont=mplus\ Nerd\ Font:h13
+		set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h14
 	endif
 endif
 
@@ -122,10 +126,10 @@ map <left> <nop>
 map <right> <nop>
 
 " Easy window navigation
-"map <C-h> <C-w>h
-"map <C-j> <C-w>j
-"map <C-k> <C-w>k
-"map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " w!! to write if readonly
 cmap w!! w !sudo tee % >/dev/null
@@ -221,6 +225,8 @@ let g:syntastic_c_compiler_options = "-Weverything" " -Wall -Werror
 
 let g:syntastic_swift_checkers = ['swiftlint']
 
+"let g:syntastic_python_python_exec = '/usr/local/bin/python2'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 
 """""""""""""""""""" HEX MODE
