@@ -3,15 +3,18 @@
 "
 " Various sources, some stuff taken from
 " https://github.com/sjl/dotfiles/blob/master/vim/vimrc
-"
+
 
 set nocompatible
-set t_Co=256
 
+" 256 colours configuration, obsolete
+"set t_Co=256
 set background=dark
+
+
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-colorscheme hybrid "mustang wombat slate solarized
+colorscheme hybrid "hybrid mustang wombat slate solarized
 
 set encoding=utf-8		" Necessary to show unicode glyphs
 syntax enable
@@ -23,14 +26,14 @@ set clipboard=unnamed
 call pathogen#infect()
 
 "Shortcut to auto indent entire file
-"set autoindent
+""""set autoindent
 set showmatch
 filetype plugin indent on
 filetype on
 
 set tabstop=4
 set shiftwidth=4
-"set softtabstop=4
+"""set softtabstop=4
 set expandtab
 
 "Relative line numbers when not in normal mode
@@ -54,14 +57,14 @@ xnoremap >  >gv
 if has("unix")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-		"set noantialias
-"       set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
-"		set guifont=mplus\ Nerd\ Font:h13
+"""     set noantialias
+"""     set guifont=Envy\ Code\ R\ for\ Powerline:h13 "Doesn't look good on Lion
+"""		set guifont=mplus\ Nerd\ Font:h13
 		set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h14
         set linespace=4
 	else
-"       set guifont=Envy\ Code\ R\ for\ Powerline
-"		set guifont=mplus\ Nerd\ Font:h13
+"""     set guifont=Envy\ Code\ R\ for\ Powerline
+"""		set guifont=mplus\ Nerd\ Font:h13
 		set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h14
 	endif
 endif
@@ -74,11 +77,9 @@ if has("gui")
 	set go-=r
 	set go-=R
 	" Different cursors for different modes.
-	"set guicursor=n-c:block-Cursor-blinkon0
-	"set guicursor+=v:block-vCursor-blinkon0
-	"set guicursor+=i-ci:ver20-iCursor
-	set lines=40
-	set columns=135
+	"""set guicursor=n-c:block-Cursor-blinkon0
+	"""set guicursor+=v:block-vCursor-blinkon0
+	"""set guicursor+=i-ci:ver20-iCursor
 endif
 
 if has("gui_macvim")
@@ -107,14 +108,8 @@ set noswapfile
 "Fixes delete in insert mode on some *nix
 set backspace=indent,eol,start
 
-
 set pastetoggle=<F2>
 nnoremap <F3> :NumbersToggle<CR>
-
-"if version>= 600
-"	set foldenable
-"	set foldmethod=marker
-"endif
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
@@ -180,36 +175,24 @@ nnoremap <leader>I :call IndentGuides()<cr>
 "
 
 
-"vim-airline
+"""""vim-airline
 set laststatus=2		" Always show the statusline
 let g:airline_powerline_fonts=1
 let g:airline_theme='wombat'
 set ttimeoutlen=50
 
-"ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_dont_split = 'NERD_tree_1'
-let g:ctrlp_jump_to_buffer = 0
-let g:ctrlp_working_path_mode = 0
-"let g:ctrlp_working_path_mode = 2
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_split_window = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_extensions = ['tag']
+""""" fzf-vim, needs ripgrep
+nnoremap <C-f> :Rg<Cr>
+nnoremap <C-p> :Files<Cr>
 
-"NerdTree
-noremap <leader>1 :NERDTreeToggle<CR>
 
-"TagList
-"ctags default tagfile
+"""""TagList
+""""ctags default tagfile
 set tags=tags;/
-nnoremap <leader>2 :TlistToggle<CR>
+nnoremap <leader>t :TlistToggle<CR>
 
-"Ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-nnoremap <leader>3 :Ack
 
-"Syntastic
+"""""Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -231,7 +214,7 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 """""""""""""""""""" HEX MODE
 
-nnoremap <leader>4 :Hexmode<CR>
+nnoremap <leader>h :Hexmode<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
