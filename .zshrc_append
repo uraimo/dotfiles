@@ -1,0 +1,67 @@
+#Paths
+export PATH="~/bin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/Library/TeX/texbin/:${PATH}"
+
+export LANG=en_US
+export EDITOR=vim
+
+#Cleanup tmp aliases
+alias cleanup_apps='brew cleanup;rm -rf /Users/$USER/Library/Caches/Homebrew/*'
+alias cleanup_xcode='rm -rf ~/Library/Developer/Xcode/DerivedData;rm -rf ~/Library/Developer/Xcode/iOS\ DeviceSupport/*;rm -rf ~/Library/Developer/Xcode/iOS\ Device\ Logs/*;xcrun simctl delete unavailable'
+alias cleanup_docker='docker rm $(docker ps -a -q) ; docker rmi $(docker images -q)'
+alias cleanup_caches='npm cache clean --force; rm -rf ~/.m2/repository'
+                                              
+#Snapshot aliases
+alias disablesnap='sudo tmutil disable localsnapshot'
+alias listsnap='tmutil listlocalsnapshots /'
+deletesnap(){ 
+    tmutil deletelocalsnapshots "$1"
+}
+
+#Binutils aliases
+alias ls='exa -F'
+alias ll='ls -al --git --color-scale'
+alias find='fd'
+alias grep='rg'
+
+dockerrun(){
+    docker run -ti --init --rm "$1" /bin/bash
+}
+
+dockerssh(){
+    docker exec -it "$1" bash
+}
+
+# Available utilities:
+# fpp, urlview,hexyl, httpie, rfc,tig
+
+######### Envs
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"
+#if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi 
+if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi 
+
+# pipenv
+export PIPENV_VENV_IN_PROJECT=1 #create env directly in project location
+alias pipenvinstall='pipenv install --skip-lock'
+alias update_pip3='pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U'
+alias listoutdated_pip3='pip3 list --outdated'
+
+alias asciimap="telnet mapscii.me"
+
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init script doesn't exist
+if ! zgen saved; then
+
+  # specify plugins here
+  zgen load agkozak/zsh-z
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
+zstyle ':completion:*' menu select

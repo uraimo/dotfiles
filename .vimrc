@@ -17,7 +17,7 @@ let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palett
 colorscheme hybrid "hybrid mustang wombat slate solarized
 
 set encoding=utf-8		" Necessary to show unicode glyphs
-syntax enable
+syntax on
 
 "Align unnamed register with system clipboard
 set clipboard=unnamed
@@ -182,9 +182,11 @@ let g:airline_theme='wombat'
 set ttimeoutlen=50
 
 """"" fzf-vim, needs ripgrep
-nnoremap <C-f> :Rg<Cr>
+nnoremap <C-g> :Rg<Cr>
 nnoremap <C-p> :Files<Cr>
 
+"NerdTree
+noremap <leader>f :NERDTreeToggle<CR>
 
 """""TagList
 """"ctags default tagfile
