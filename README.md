@@ -15,10 +15,17 @@ My .vimrc and other dotfiles, they will work on both macOS and Linux.
 ## Dependencies
 
 ```
-    brew install ripgrep fzf
+    brew install ripgrep fzf git-delta
 ```
 
 You should manually install zgen: `https://github.com/tarjoilija/zgen`, a package manager for zsh.
+
+## GIT Alias
+
+* `ad`: Stage everything for the current directory, added,modified,removed.
+* `gst`: Quicker status.
+* `l50`/`lg50`, `l80`/`lg80`: Colorized compact log.
+
 
 ## VIM Plugins
 
