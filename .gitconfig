@@ -12,6 +12,7 @@
 	status = auto
 
 [alias]
+	find	  = log --pretty=\"format:%Cgreen%H %Cblue%s%Creset\" --name-status -i --grep
 	gg        = grep --break --heading -n
 	st        = status
 	co        = checkout
