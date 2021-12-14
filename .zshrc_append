@@ -48,6 +48,12 @@ alias listoutdated_pip3='pip3 list --outdated'
 
 alias asciimap="telnet mapscii.me"
 
+#Build with default args
+alias mvni="mvn clean install -DskipTests"
+alias grai="./gradlew assemble"
+alias yarni="yarn install --force"
+
+
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 
